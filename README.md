@@ -15,7 +15,7 @@ The goal is to make the whole experience smooth and enjoyable for both sellers a
 
 Login/Register Pages (Customer & Artisan)
 Home Page with product listings
-Smart Filters (category, price, search)
+Smart Filters (category, price, search) 
 Product Details Page
 Shopping Cart Page
 Checkout Page with address form
