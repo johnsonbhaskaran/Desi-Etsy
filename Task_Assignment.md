@@ -22,7 +22,7 @@ Nice Mary - `N`
 | `Week 1` |        Johnson        |     Harshita      |            Samir             |       Nice Mary        |
 | :------- | :-------------------: | :---------------: | :--------------------------: | :--------------------: |
 | Backend  | Artisan Approval APIs |         -         |              -               | User/Artisan Auth APIs |
-| Frontend |                       | Artisan Dashboard | Product Listings + Filter UI |                        |
+| Frontend |             -          | Artisan Dashboard | Product Listings + Filter UI |             -           |
 |          |                       |                   |                              |                        |
 
 | `Week 2` |        Johnson        |     Harshita      |            Samir             |       Nice Mary        |
