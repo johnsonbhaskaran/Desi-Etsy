@@ -1,4 +1,4 @@
-# Desi-Etsy - Product development roadmap
+# Desi-Etsy - Task Assignment
 
 | `Week 1` |        Johnson        |     Harshita      |            Samir             |       Nice Mary        |
 | :------- | :-------------------: | :---------------: | :--------------------------: | :--------------------: |
