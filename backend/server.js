@@ -1,4 +1,4 @@
-import express, { json } from "express";
+import express from "express";
 import "dotenv/config.js";
 import dbConnect from "./src/config/dbConnect.js";
 import cors from "cors";
