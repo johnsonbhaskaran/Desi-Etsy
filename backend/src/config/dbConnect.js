@@ -1,10 +1,14 @@
-import express from "express";
+import mongoose from "mongoose";
+import "dotenv/config.js";
 
-const router = express.Router();
+const dbConnect = async () => {
+  try {
+    await mongoose.connect(process.env.CONNECTION_STRING, () => {
+      console.log(`Database connected ${dbConnect.connection.host} ${dbConnect.connection.name}`);
+    });
+  } catch (error) {
+    console.error("Database connection Error");
+  }
+};
 
-router.get("/", (req, res) => {
-  res.status(200).json({ message: "connected successfull from dbConnect.js" });
-  console.log(`router connected successfull`);
-});
-
-export default router;
+export default dbConnect;

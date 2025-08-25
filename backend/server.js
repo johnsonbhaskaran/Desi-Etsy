@@ -1,6 +1,7 @@
 import express, { json } from "express";
-import "dotenv/config";
+import "dotenv/config.js";
 import dbConnect from "./src/config/dbConnect.js";
+import cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT;
@@ -13,7 +14,7 @@ dbConnect();
 
 // Middlewares
 app.use(cors());
-app.use(json());
+app.use(express.json());
 
 // Setup
 app.listen(PORT, () => {
