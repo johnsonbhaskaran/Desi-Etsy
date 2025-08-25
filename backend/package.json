@@ -1,0 +1,19 @@
+{
+  "name": "desi-etsy-backend",
+  "version": "1.0.0",
+  "description": "Niche E-commerce Platform for Handmade Products | A mini marketplace where local artisans can register, list handmade products, and customers can purchase them online.",
+  "keywords": [
+    "etsy-clone",
+    "react-project",
+    "internship",
+    "project",
+    "express-backend"
+  ],
+  "license": "ISC",
+  "author": "Johnson Bhaskaran",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
