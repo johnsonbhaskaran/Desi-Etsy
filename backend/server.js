@@ -1,15 +1,19 @@
-import express from "express";
+import express, { json } from "express";
 import "dotenv/config";
+import dbConnect from "./src/config/dbConnect.js";
 
 const app = express();
 const PORT = process.env.PORT;
 
+dbConnect();
+
 // Routes
-app.get("/", (req, res) => {
-  res.status(200).json({ message: `You have accessed the homepage successfully` });
-});
+// app.use("/api/user/", userLogin);
+// app.use("/api/artisan/", artisanLogin);
 
 // Middlewares
+app.use(cors());
+app.use(json());
 
 // Setup
 app.listen(PORT, () => {
