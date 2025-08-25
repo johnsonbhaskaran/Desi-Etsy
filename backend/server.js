@@ -2,19 +2,22 @@ import express from "express";
 import "dotenv/config.js";
 import dbConnect from "./src/config/dbConnect.js";
 import cors from "cors";
+// import router from "./src/routes/authRoutes.js";
+import productRoutes from "./src/routes/productRoutes.js";
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 7001;
 
 dbConnect();
-
-// Routes
-// app.use("/api/user/", userLogin);
-// app.use("/api/artisan/", artisanLogin);
 
 // Middlewares
 app.use(cors());
 app.use(express.json());
+
+// Routes
+app.use("/api/products/", productRoutes);
+// app.use("/api/user/", router);
+// app.use("/api/artisan/", router);
 
 // Setup
 app.listen(PORT, () => {
