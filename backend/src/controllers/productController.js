@@ -22,7 +22,7 @@ const updateProduct = (req, res) => {
 //@desc Create new product
 //@route POST /api/products
 //@access public
-const createProduct = async (req, res) => {
+const createProduct = (req, res) => {
   const {
     name,
     category,
@@ -37,14 +37,12 @@ const createProduct = async (req, res) => {
     material,
     color,
     technique,
-  } = await req.body;
-  try {
-    console.log(name, category);
-    res.status(201).json({ message: "Created new product" });
-  } catch (err) {
+  } = req.body;
+  if (!name || !category) {
     res.status(400);
     throw new Error("All fields are mandatory");
   }
+  res.status(201).json({ message: "Created new product" });
 };
 
 //@desc Delete single product
