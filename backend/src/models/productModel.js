@@ -82,6 +82,7 @@ const productSchema = new mongoose.Schema(
         },
       },
     ],
+    artisan: { type: mongoose.Schema.Types.ObjectId, ref: Artisan },
   },
   { timestamps: true }
 );
