@@ -2,7 +2,7 @@ import express from "express";
 import "dotenv/config.js";
 import dbConnect from "./src/config/dbConnect.js";
 import cors from "cors";
-// import router from "./src/routes/authRoutes.js";
+import authRoutes from "./src/routes/authRoutes.js";
 import productRoutes from "./src/routes/productRoutes.js";
 
 const app = express();
@@ -16,8 +16,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/products/", productRoutes);
-// app.use("/api/user/", router);
-// app.use("/api/artisan/", router);
+app.use("/api/auth/", authRoutes);
 
 // Setup
 app.listen(PORT, () => {

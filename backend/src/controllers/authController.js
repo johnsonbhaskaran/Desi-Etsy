@@ -1,8 +1,14 @@
-const userLogin = (req, res) => {
-  res.json({ message: "user Login" });
+const buyerLogin = (req, res) => {
+  res.json({ message: "buyer Login" });
 };
-const userRegister = (req, res) => {
-  res.json({ message: "artisan Login" });
+const buyerRegister = (req, res) => {
+  res.json({ message: "buyer Register" });
+};
+const artisanLogin = (req, res) => {
+  res.json({ message: "Artisan Login" });
+};
+const artisanRegister = (req, res) => {
+  res.json({ message: "Artisan Register" });
 };
 
-export { userLogin, userRegister };
+export { buyerLogin, buyerRegister, artisanLogin, artisanRegister };
