@@ -53,8 +53,8 @@ const paymentSchema = new mongoose.Schema(
         },
       },
     ],
-    buyer: { type: mongoose.Schema.Types.ObjectId, ref: Buyer },
-    artisan: [{ type: mongoose.Schema.Types.ObjectId, ref: Artisan }],
+    buyer: { type: mongoose.Schema.Types.ObjectId, ref: "Buyer" },
+    artisan: [{ type: mongoose.Schema.Types.ObjectId, ref: "Artisan" }],
   },
   { timestamps: true }
 );
