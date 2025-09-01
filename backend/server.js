@@ -2,7 +2,7 @@ import express from "express";
 import "dotenv/config.js";
 import dbConnect from "./src/config/dbConnect.js";
 import cors from "cors";
-import authRoutes from "./src/routes/authRoutes.js";
+import authRoutes from "./src/routes/artisanRoutes.js";
 import productRoutes from "./src/routes/productRoutes.js";
 import errorHandler from "./src/middlewares/errorHandler.js";
 
@@ -17,7 +17,8 @@ app.use(express.json());
 
 // Routes
 app.use("/api/products/", productRoutes);
-app.use("/api/auth/", authRoutes);
+app.use("/api/auth/artisan", artisanRoutes);
+app.use("/api/auth/buyer", buyerRoutes);
 
 // Custom Middlewares
 app.use(errorHandler);

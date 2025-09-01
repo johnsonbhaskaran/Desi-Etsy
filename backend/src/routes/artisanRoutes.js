@@ -4,7 +4,7 @@ import {
   buyerRegister,
   artisanLogin,
   artisanRegister,
-} from "../controllers/authController.js";
+} from "../controllers/buyerRouteController.js";
 
 const router = Router();
 
