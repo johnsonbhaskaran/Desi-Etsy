@@ -6,11 +6,8 @@ const buyerLogin = asyncHandler(async (req, res) => {
 const buyerRegister = asyncHandler(async (req, res) => {
   res.json({ message: "buyer Register" });
 });
-const artisanLogin = asyncHandler(async (req, res) => {
-  res.json({ message: "Artisan Login" });
-});
-const artisanRegister = asyncHandler(async (req, res) => {
-  res.json({ message: "Artisan Register" });
+const buyerCurrent = asyncHandler(async (req, res) => {
+  res.json({ message: "buyer Current" });
 });
 
-export { buyerLogin, buyerRegister, artisanLogin, artisanRegister };
+export { buyerLogin, buyerRegister, buyerCurrent };
