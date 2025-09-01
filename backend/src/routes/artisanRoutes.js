@@ -1,16 +1,14 @@
 import { Router } from "express";
 import {
-  buyerLogin,
-  buyerRegister,
   artisanLogin,
   artisanRegister,
+  artisanCurrent,
 } from "../controllers/buyerRouteController.js";
 
 const router = Router();
 
-router.route("/login/buyer").post(buyerLogin);
-router.route("/login/artisan").post(artisanLogin);
-router.route("/register/buyer").post(buyerRegister);
-router.route("/register/artisan").post(artisanRegister);
+router.route("/login").post(artisanLogin);
+router.route("/register").post(artisanRegister);
+router.route("/current").post(artisanCurrent);
 
 export default router;
