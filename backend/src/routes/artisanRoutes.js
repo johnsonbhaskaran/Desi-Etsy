@@ -3,7 +3,7 @@ import {
   artisanLogin,
   artisanRegister,
   artisanCurrent,
-} from "../controllers/buyerRouteController.js";
+} from "../controllers/artisanRouteController.js";
 
 const router = Router();
 

@@ -2,7 +2,8 @@ import express from "express";
 import "dotenv/config.js";
 import dbConnect from "./src/config/dbConnect.js";
 import cors from "cors";
-import authRoutes from "./src/routes/artisanRoutes.js";
+import artisanRoutes from "./src/routes/artisanRoutes.js";
+import buyerRoutes from "./src/routes/buyerRoutes.js";
 import productRoutes from "./src/routes/productRoutes.js";
 import errorHandler from "./src/middlewares/errorHandler.js";
 
