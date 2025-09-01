@@ -1,14 +1,16 @@
-const buyerLogin = (req, res) => {
+import asyncHandler from "express-async-handler";
+
+const buyerLogin = asyncHandler(async (req, res) => {
   res.json({ message: "buyer Login" });
-};
-const buyerRegister = (req, res) => {
+});
+const buyerRegister = asyncHandler(async (req, res) => {
   res.json({ message: "buyer Register" });
-};
-const artisanLogin = (req, res) => {
+});
+const artisanLogin = asyncHandler(async (req, res) => {
   res.json({ message: "Artisan Login" });
-};
-const artisanRegister = (req, res) => {
+});
+const artisanRegister = asyncHandler(async (req, res) => {
   res.json({ message: "Artisan Register" });
-};
+});
 
 export { buyerLogin, buyerRegister, artisanLogin, artisanRegister };
