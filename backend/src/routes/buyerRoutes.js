@@ -5,6 +5,6 @@ const router = Router();
 
 router.route("/login").post(buyerLogin);
 router.route("/register").post(buyerRegister);
-router.route("/current").post(buyerCurrent);
+router.route("/current").get(buyerCurrent);
 
 export default router;
