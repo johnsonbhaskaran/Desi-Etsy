@@ -14,7 +14,6 @@ const buyerSchema = new mongoose.Schema(
         password: {
           type: String,
           required: true,
-          unique: true,
         },
         email: {
           type: String,
@@ -24,31 +23,50 @@ const buyerSchema = new mongoose.Schema(
         phone: {
           type: Number,
           required: true,
-        },
-        addressType: {
-          type: String,
-          required: true,
+          unique: true,
         },
         address: {
-          line1: {
-            type: String,
+          shipping: {
+            line1: {
+              type: String,
+              required: true,
+            },
+            line2: {
+              type: String,
+            },
+            city: String,
+            state: String,
+            pincode: {
+              type: Number,
+              required: true,
+              validate: {
+                validator: function (v) {
+                  return v.every((p) => /^[0-9]{6}$/.test(p.toString()));
+                },
+              },
+            },
             required: true,
           },
-          line2: {
-            type: String,
+          billing: {
+            line1: {
+              type: String,
+              required: true,
+            },
+            line2: {
+              type: String,
+            },
+            city: String,
+            state: String,
+            pincode: Number,
           },
         },
-        city: {
-          type: String,
-          required: true,
-        },
-        state: {
-          type: String,
-          required: true,
-        },
-        PIN: {
-          type: Number,
-          required: true,
+        location: {
+          zone: { type: Number, required: true }, // * Pincode
+          latitude: { type: Number, required: true },
+          longitude: { type: Number, required: true },
+          DIGIPIN: String,
+          plusCodes: String,
+          what3words: String,
         },
       },
     ],

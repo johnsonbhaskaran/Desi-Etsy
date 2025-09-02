@@ -16,7 +16,7 @@ const buyerRegister = asyncHandler(async (req, res) => {
 
 //*@desc Current Buyer
 //@route GET /api/auth/buyer/current
-//@access public
+//*@access private
 const buyerCurrent = asyncHandler(async (req, res) => {
   res.json({ message: "buyer Current" });
 });
