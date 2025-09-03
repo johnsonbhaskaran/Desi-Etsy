@@ -4,6 +4,11 @@ const productSchema = new mongoose.Schema(
   {
     product: [
       {
+        artisan_id: {
+          type: mongoose.Schema.Types.ObjectId,
+          required: true,
+          ref: "Artisan",
+        },
         name: {
           type: String,
           required: true,

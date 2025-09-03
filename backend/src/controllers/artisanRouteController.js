@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 
 //*@desc Register as an Artisan
 //@route POST /api/auth/artisan/register
-//@access public
+//@access public => private
 const artisanRegister = asyncHandler(async (req, res) => {
   const {
     name,
@@ -30,7 +30,7 @@ const artisanRegister = asyncHandler(async (req, res) => {
 
 //*@desc Login as an Artisan
 //@route POST /api/auth/artisan/login
-//@access public
+//@access public => private
 const artisanLogin = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
@@ -51,7 +51,7 @@ const artisanLogin = asyncHandler(async (req, res) => {
           password: artisan.password,
         },
       },
-      process.env.ACCESSTOKEN,
+      process.env.JWT_SECRET,
       { expiresIn: "1m" }
     );
 
@@ -66,7 +66,7 @@ const artisanLogin = asyncHandler(async (req, res) => {
 //@route GET /api/auth/artisan/current
 //*@access private
 const artisanCurrent = asyncHandler(async (req, res) => {
-  res.json({ message: "Artisan Current" });
+  res.json(req.user);
 });
 
 export { artisanCurrent, artisanLogin, artisanRegister };
