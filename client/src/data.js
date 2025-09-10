@@ -9,13 +9,13 @@ export const sliderItems = [
   },
   {
     id: 2,
-    img: shoppingGirl,
+    img: "https://i.ibb.co/cXFnLLV/3.png",
     title: "AUTUMN COLLECTION",
     description: "DON'T COMPROMISE ON STYLE! GET FLAT OFF FOR NEW ARRIVALS.",
   },
   {
     id: 3,
-    img: shoppingGirl,
+    img: "https://i.ibb.co/DG69bQ4/2.png",
     title: "LOUNGEWEAR LOVE",
     description: "DON'T COMPROMISE ON STYLE! GET FLAT OFF FOR NEW ARRIVALS.",
   },
@@ -24,17 +24,17 @@ export const sliderItems = [
 export const categories = [
   {
     id: 1,
-    img: "https://images.pexels.com/photos/5886041/pexel-photo-5886041.jpg",
+    img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg",
     title: "SHIRT STYLE",
   },
   {
     id: 2,
-    img: "https://images.pexels.com/photos/2983464/pexel-photo-2983464.jpg",
+    img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg",
     title: "LOUNGEWEAR LOVE!",
   },
   {
     id: 3,
-    img: "https://images.pexels.com/photos/5480696/pexel-photo-5480696.jpg",
+    img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg",
     title: "LIGHT JACKETS",
   },
 ];
