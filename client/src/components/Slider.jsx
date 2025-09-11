@@ -1,8 +1,8 @@
+import { useState } from "react";
 import styled from "styled-components";
 import ArrowLeftOutlined from "@mui/icons-material/ArrowLeftOutlined";
 import ArrowRightOutlined from "@mui/icons-material/ArrowRightOutlined";
 import { sliderItems } from "../data.js";
-import { useState } from "react";
 
 const Container = styled.div`
   width: 100%;
@@ -12,11 +12,32 @@ const Container = styled.div`
   overflow: hidden;
 `;
 
+const Arrow = styled.div`
+  width: 50px;
+  height: 50px;
+  background-color: #f7f7f7;
+  border-radius: 50%;
+
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: ${(props) => props.direction === "right" && "10px"};
+  left: ${(props) => props.direction === "left" && "10px"};
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 20;
+  cursor: pointer;
+`;
+
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
+  transform: translateX(${(props) => props.$slideIndex * -100}vw);
   transition: all 1.5s ease;
-  transform: translateX(${(props) => props.slideIndex * -100}vw);
 `;
 
 const Slide = styled.div`
@@ -27,9 +48,9 @@ const Slide = styled.div`
 `;
 
 const ImgContainer = styled.div`
-  height: 100%;
-  flex: 1;
   display: flex;
+  flex: 1;
+  height: 100%;
   justify-content: center;
 `;
 
@@ -58,26 +79,6 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const Arrow = styled.div`
-  width: 50px;
-  height: 50px;
-  background-color: #f7f7f7;
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  cursor: pointer;
-
-  left: ${(props) => props.direction === "left" && "10px"};
-  right: ${(props) => props.direction === "right" && "10px"};
-`;
-
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
   const handleClick = (direction) => {
@@ -93,9 +94,9 @@ const Slider = () => {
       <Arrow direction='left' onClick={() => handleClick("left")}>
         <ArrowLeftOutlined />
       </Arrow>
-      <Wrapper slideIndex={slideIndex}>
-        {sliderItems.map((item, id) => (
-          <Slide key={id}>
+      <Wrapper $slideIndex={slideIndex}>
+        {sliderItems.map((item) => (
+          <Slide key={item.id}>
             <ImgContainer>
               <Image src={item.img} />
             </ImgContainer>
