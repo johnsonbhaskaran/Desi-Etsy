@@ -3,7 +3,8 @@ import Navbar from "../components/Navbar";
 import Slider from "../components/Slider";
 import Categories from "../components/Categories";
 import ProductList from "../components/ProductList";
-import Newsletter from "../components/Newsletter.jsx";
+import Newsletter from "../components/Newsletter";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Categories />
       <ProductList />
       <Newsletter />
+      <Footer />
     </div>
   );
 };
