@@ -1,4 +1,4 @@
-import shoppingGirl from "../public/assets/shoppingGirl.png";
+import shoppingGirl from "/assets/shoppingGirl.png";
 
 export const sliderItems = [
   {
