@@ -3,13 +3,13 @@ import shoppingGirl from "/assets/shoppingGirl.png";
 export const sliderItems = [
   {
     id: 1,
-    img: shoppingGirl,
+    img: "https://i.ibb.co/cXFnLLV/3.png",
     title: "SUMMER SALE",
     description: "DON'T COMPROMISE ON STYLE! GET FLAT OFF FOR NEW ARRIVALS.",
   },
   {
     id: 2,
-    img: "https://i.ibb.co/cXFnLLV/3.png",
+    img: shoppingGirl,
     title: "AUTUMN COLLECTION",
     description: "DON'T COMPROMISE ON STYLE! GET FLAT OFF FOR NEW ARRIVALS.",
   },
