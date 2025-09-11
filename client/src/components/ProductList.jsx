@@ -5,15 +5,16 @@ import Product from "./Product";
 const Container = styled.div`
   padding: 20px;
   display: flex;
-  height: 100vh;
+  flex-wrap: wrap;
+  justify-content: space-between;
 `;
 
 const ProductList = () => {
   return (
     <Container>
-      {popularProducts.map((item) => {
-        <Product item={item} key={item.id} />;
-      })}
+      {popularProducts.map((item) => (
+        <Product item={item} key={item.id} />
+      ))}
     </Container>
   );
 };
