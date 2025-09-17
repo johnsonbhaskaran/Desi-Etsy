@@ -2,11 +2,13 @@ import styled from "styled-components";
 import ShoppingCartOutlined from "@mui/icons-material/ShoppingCartOutlined";
 import FavoriteBorderOutlined from "@mui/icons-material/FavoriteBorderOutlined";
 import SearchOutlined from "@mui/icons-material/SearchOutlined";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
   flex: 1;
   margin: 5px;
-  min-width: 450px;
+  min-width: 350px;
+  ${mobile({ minWidth: "100%", margin: "0px 0px 20px 0px" })}
   height: 350px;
   display: flex;
   justify-content: center;

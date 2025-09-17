@@ -4,11 +4,13 @@ import Navbar from "../components/Navbar";
 import ProductList from "../components/ProductList";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
+import { mobile } from "../responsive";
 
 const Container = styled.div``;
 
 const Title = styled.h1`
   margin: 20px;
+  ${mobile({ fontSize: "32px", margin: "10px 20px" })}
   font-size: 48px;
 `;
 
@@ -19,11 +21,21 @@ const FilterContainer = styled.div`
 
 const Filter = styled.div`
   margin: 20px;
+  ${mobile({
+    justifyContent: "start",
+    margin: "10px 20px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "self-start",
+    flexWrap: "nowrap",
+  })}
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 const FilterText = styled.p`
+  ${mobile({ fontSize: "20px", marginBottom: "10px" })}
   font-size: 24px;
   font-weight: 600;
   margin-right: 20px;
@@ -32,6 +44,7 @@ const FilterText = styled.p`
 const Select = styled.select`
   padding: 10px;
   margin-right: 20px;
+  ${mobile({ fontSize: "14px", width: "100%", marginBottom: "10px" })}
   font-size: 18px;
 `;
 const Option = styled.option`

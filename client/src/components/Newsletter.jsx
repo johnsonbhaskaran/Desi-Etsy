@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import Send from "@mui/icons-material/Send";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
+  ${mobile({ height: "45vh" })}
   height: 60vh;
   background-color: #f5fafc;
   display: flex;
@@ -11,18 +13,23 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
+  ${mobile({ fontSize: "50px" })}
   font-size: 70px;
   margin-bottom: 20px;
 `;
 
 const Descp = styled.div`
+  ${mobile({ fontSize: "20px", padding: "0px 20px" })}
   font-size: 24px;
   font-weight: 300;
   margin-bottom: 20px;
+
+  ${mobile({ textAlign: "center" })}
 `;
 
 const InputContainer = styled.div`
   width: 35%;
+  ${mobile({ width: "90%" })}
   height: 48px;
   background-color: #fff;
   display: flex;
@@ -42,6 +49,7 @@ const Button = styled.button`
   border: none;
   background-color: teal;
   color: wheat;
+  min-width: 60px;
 `;
 
 const Newsletter = () => {

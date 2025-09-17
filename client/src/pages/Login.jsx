@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
   width: 100vw;
@@ -14,11 +15,13 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   width: 30%;
+  ${mobile({ width: "90%" })};
   padding: 30px;
   background-color: #fff;
 `;
 
 const Title = styled.h1`
+  ${mobile({ fontSize: "24px", marginBottom: "10px" })};
   font-size: 32px;
   font-weight: 300;
 `;
@@ -32,6 +35,7 @@ const Input = styled.input`
   flex: 1;
   min-width: 40%;
   margin: 10px 0px;
+  ${mobile({ fontSize: "14px", padding: "15px" })};
   font-size: 18px;
   padding: 20px;
 `;
@@ -40,6 +44,7 @@ const Button = styled.button`
   width: 40%;
   border: none;
   padding: 20px;
+  ${mobile({ fontSize: "14px", padding: "15px 10px" })};
   font-size: 18px;
   background-color: teal;
   color: white;
@@ -49,7 +54,8 @@ const Button = styled.button`
 
 const Link = styled.a`
   margin: 5px 0px;
-  font-size: 12px;
+  ${mobile({ fontSize: "12px" })};
+
   text-decoration: underline;
   cursor: pointer;
   font-size: 18px;
