@@ -1,7 +1,7 @@
 import express, { json } from "express";
 import mongoose from "mongoose";
 import "dotenv/config.js";
-import { router as userRoute } from "./routes/user.js";
+import userRouter from "./routes/user.js";
 import authRouter from "./routes/auth.js";
 
 const app = express();
@@ -45,8 +45,8 @@ app
                       ** App User Routes from seperate files
   /------------------------------------------------------------------*/
 
-app.use("/api/users", userRoute);
-app.use("/api/users", authRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/users", userRouter);
 
 /* -----------------------------------------------------------------/
                     ** Server start
