@@ -1,6 +1,7 @@
 import express, { json } from "express";
 import mongoose from "mongoose";
 import "dotenv/config.js";
+// import CryptoJS from "crypto-js";
 import userRouter from "./routes/user.js";
 import authRouter from "./routes/auth.js";
 
@@ -55,3 +56,18 @@ app.use("/api/users", userRouter);
 app.listen(5000, () => {
   console.log(`Backend Server running on Locahost port: ${PORT}`);
 });
+
+/* -----------------------------------------------------------------/
+                    * Just explore the CryptoJS *
+/------------------------------------------------------------------*/
+
+// const cipherText = CryptoJS.AES.encrypt("Hi This is top secret", "This the secret KEY").toString();
+
+// console.log("Encrypted text: " + cipherText);
+
+// console.log();
+
+// const decipherText = CryptoJS.AES.decrypt(cipherText, "This the secret KEY");
+// const showText = decipherText.toString(CryptoJS.enc.Utf8);
+
+// console.log("Deciphered Text:", showText);
