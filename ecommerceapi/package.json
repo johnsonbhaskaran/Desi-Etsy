@@ -1,0 +1,19 @@
+{
+  "name": "desi-etsy-ecommerce-api",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "ecommerce",
+    "etsy",
+    "react",
+    "node",
+    "express"
+  ],
+  "license": "ISC",
+  "author": "Johnson Bhaskaran",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
