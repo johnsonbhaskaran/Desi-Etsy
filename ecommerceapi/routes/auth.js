@@ -64,9 +64,9 @@ authRouter.post("/login", async (req, res) => {
 
     password !== DEcryptedPassword && res.status(401).json("Wrong credentials");
 
-    console.log(DEcryptedPassword + " should be = " + password);
+    const { password: password_from_db, ...others } = user_from_db._doc;
 
-    res.status(200).json({ message: "Login successful", UserDetails: user_from_db });
+    res.status(200).json({ message: "Login successful", UserDetails: others });
   } catch (err) {
     res.status(500).json({ Error: err });
   }
