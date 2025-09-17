@@ -11,7 +11,7 @@
   ],
   "license": "ISC",
   "author": "Johnson Bhaskaran",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "dev": "node --watch index.js"
