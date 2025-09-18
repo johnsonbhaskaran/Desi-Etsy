@@ -5,11 +5,12 @@ const verifyToken = (req, res, next) => {
 
   if (authHeader) {
     jwt.verify(authHeader, process.env.TOKEN_SECRET_KEY, (err, user) => {
+      if (err) res.status(403).json("Token is not valid");
       req.user = user;
       next();
     });
   } else {
-    res.status(401).send("You are not Authorized");
+    res.status(401).json("You are not Authorized");
   }
 };
 
