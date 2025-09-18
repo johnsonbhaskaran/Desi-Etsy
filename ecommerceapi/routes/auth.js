@@ -19,7 +19,8 @@ authRouter.post("/register", async (req, res) => {
     return;
   }
 
-  const cryptedPassword = CryptoJS.AES.encrypt(password, process.env.SECRET_KEY).toString();
+  //? Encrypting the user provided password
+  const cryptedPassword = CryptoJS.AES.encrypt(password, process.env.CRYPT_SECRET_KEY).toString();
 
   //? Creating newUser object instance with the User Mongo MODEL
   const newUser = new User({
@@ -32,10 +33,10 @@ authRouter.post("/register", async (req, res) => {
   try {
     const savedUser = await newUser.save();
 
-    // ? sending Success response
+    //? sending Success response
     res.status(201).json(savedUser);
   } catch (err) {
-    // ? sending Err response
+    //? sending Err response
     res.status(500).json(err);
   }
 });
@@ -53,28 +54,43 @@ authRouter.post("/login", async (req, res) => {
     return;
   }
 
-  // ? Try catch block for Promise from MongoDB
+  //? Try catch block for Promise from MongoDB
   try {
-    // ? Finding the user for DB using unique username
+    //? Finding the user for DB using unique username
     const user_from_db = await User.findOne({ username });
 
-    // ? Checking for wrong username credentials
+    //? Checking for wrong username credentials
     !user_from_db && res.status(401).json("Wrong credentials");
 
-    // ? DeCrypting the hashedPassword from DB
+    //? DeCrypting the hashedPassword from DB
     const DEcryptedPassword = CryptoJS.AES.decrypt(
       user_from_db.password,
-      process.env.SECRET_KEY
+      process.env.CRYPT_SECRET_KEY
     ).toString(CryptoJS.enc.Utf8);
 
-    // ? Checking for wrong password credentials
+    //? Checking for wrong password credentials
     password !== DEcryptedPassword && res.status(401).json("Wrong credentials");
 
-    // ? Destructuring password and other details for sending in response
+    //? JWT token generation
+    const accessToken = jwt.sign(
+      {
+        id: user_from_db.id,
+        isAdmin: user_from_db.isAdmin,
+      },
+      process.env.TOKEN_SECRET_KEY,
+      { expiresIn: "3d" }
+    );
+
+    //? JWT token verification
+    // const tokenVerify = jwt.verify();
+
+    //? Destructuring password and other details for sending in response
     const { password: password_from_db, ...others } = user_from_db._doc;
 
-    // ? Success status as response with user details other than hashedPassword
-    res.status(200).json({ message: "Login successful", UserDetails: others });
+    //? Success status as response with user details other than hashedPassword
+    res
+      .status(200)
+      .json({ message: "Login successful", UserDetails: others, AccessToken: accessToken });
   } catch (err) {
     res.status(500).json({ Error: err });
   }
