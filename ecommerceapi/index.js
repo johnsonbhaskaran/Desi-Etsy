@@ -58,7 +58,7 @@ app.listen(5000, () => {
 });
 
 /* -----------------------------------------------------------------/
-                    * Just explore the CryptoJS *
+                    * Just exploring the CryptoJS *
 /------------------------------------------------------------------*/
 
 // const cipherText = CryptoJS.AES.encrypt("Hi This is top secret", "This the secret KEY").toString();
