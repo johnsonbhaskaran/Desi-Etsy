@@ -5,6 +5,7 @@ import "dotenv/config.js";
 import userRouter from "./routes/user.js";
 import authRouter from "./routes/auth.js";
 import productRouter from "./routes/product.js";
+import cartRouter from "./routes/cart.js";
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -50,6 +51,7 @@ app
 app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
+app.use("/api/products", cartRouter);
 
 /* -----------------------------------------------------------------/
                     ** Server start
