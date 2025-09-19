@@ -4,6 +4,7 @@ import "dotenv/config.js";
 // import CryptoJS from "crypto-js";
 import userRouter from "./routes/user.js";
 import authRouter from "./routes/auth.js";
+import productRouter from "./routes/product.js";
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -48,6 +49,7 @@ app
 
 app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
+app.use("/api/products", productRouter);
 
 /* -----------------------------------------------------------------/
                     ** Server start
