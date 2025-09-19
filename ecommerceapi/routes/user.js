@@ -54,6 +54,53 @@ userRouter.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
 });
 
 /* -----------------------------------------------------------------/
+                    * GET User stats *
+                    * Returns Total no of users/month
+/------------------------------------------------------------------*/
+
+userRouter.get("/stats", verifyTokenAndAdmin, async (req, res) => {
+  const todaysDate = new Date();
+
+  //? Logic -> eg: todaysDate -> Fri Sep 19 2025 10:26:36 GMT+0530 (India Standard Time)
+  //? we need last year this date, which is Fri Sep 19 2024 10:26:36 GMT+0530...
+  //? so, we take todaysDate subtract the year with one and keeping the rest the same
+  const lastYear = new Date(todaysDate.setFullYear(todaysDate.getFullYear() - 1));
+  try {
+    //? Grouping data from DB with mongoDB aggregation pipeline
+    const dataGroup = await User.aggregate([
+      {
+        $match: {
+          createdAt: {
+            $gte: lastYear,
+          },
+        },
+      },
+      {
+        //? projection not project - for understanding
+        $project: {
+          month: {
+            $month: "$createdAt",
+          },
+        },
+      },
+      {
+        $group: {
+          _id: "$month",
+          total: {
+            $sum: 1,
+          },
+        },
+      },
+    ]);
+
+    res.status(200).json({ dataGroup });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+/* -----------------------------------------------------------------/
                    * GET user data *
 /------------------------------------------------------------------*/
 
@@ -76,13 +123,28 @@ userRouter.get("/:id", verifyTokenAndAdmin, async (req, res) => {
 /------------------------------------------------------------------*/
 
 userRouter.get("/", verifyTokenAndAdmin, async (req, res) => {
+  //? In case of Query Params - new=true
+  const query = req.query.new;
+
+  //? Show the latest five documents from the DB - If new=true
+  if (query) {
+    try {
+      const latest_5_Users = await User.find().sort({ _id: -1 }).limit(5);
+      //? pulls everything and sorts the latest
+
+      return res.status(200).json(latest_5_Users);
+    } catch (err) {
+      return res.status(500).json(err);
+    }
+  }
+
   try {
     //? Find all users from the DB and delete the document
     const allUsers_in_db = await User.find();
 
-    res.status(200).json(allUsers_in_db);
+    return res.status(200).json(allUsers_in_db);
   } catch (err) {
-    res.status(500).json(err);
+    return res.status(500).json(err);
   }
 });
 
