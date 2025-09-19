@@ -5,6 +5,10 @@ import { verifyTokenAndAdmin } from "./verifyToken.js";
 
 const productRouter = express.Router();
 
+/* -----------------------------------------------------------------/
+                    * CREATE new product *
+/------------------------------------------------------------------*/
+
 productRouter.post("/", verifyTokenAndAdmin, async (req, res) => {
   const newProduct = new Product(req.body);
 
