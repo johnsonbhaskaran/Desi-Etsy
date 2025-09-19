@@ -129,8 +129,8 @@ userRouter.get("/", verifyTokenAndAdmin, async (req, res) => {
   //? Show the latest five documents from the DB - If new=true
   if (query) {
     try {
+      //? pulls everything and sorts the latest add users using _id
       const latest_5_Users = await User.find().sort({ _id: -1 }).limit(5);
-      //? pulls everything and sorts the latest
 
       return res.status(200).json(latest_5_Users);
     } catch (err) {
@@ -139,7 +139,7 @@ userRouter.get("/", verifyTokenAndAdmin, async (req, res) => {
   }
 
   try {
-    //? Find all users from the DB and delete the document
+    //? Find all users from the DB
     const allUsers_in_db = await User.find();
 
     return res.status(200).json(allUsers_in_db);

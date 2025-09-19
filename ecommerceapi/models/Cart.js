@@ -13,4 +13,6 @@ const cartSchema = Schema(
   { timestamps: true }
 );
 
-export default Cart = model("Cart", cartSchema);
+const Cart = model("Cart", cartSchema);
+
+export default Cart;
