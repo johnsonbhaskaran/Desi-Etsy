@@ -27,6 +27,7 @@ authRouter.post("/register", async (req, res) => {
     username,
     email,
     password: cryptedPassword,
+    isAdmin,
   });
 
   //? Saving the model to the Mongo DB
@@ -80,9 +81,6 @@ authRouter.post("/login", async (req, res) => {
       process.env.TOKEN_SECRET_KEY,
       { expiresIn: "3d" }
     );
-
-    //? JWT token verification
-    // const tokenVerify = jwt.verify();
 
     //? Destructuring password and other details for sending in response
     const { password: password_from_db, ...others } = user_from_db._doc;
