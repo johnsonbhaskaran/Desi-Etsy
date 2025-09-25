@@ -51,8 +51,7 @@ authRouter.post("/login", async (req, res) => {
 
   //? Checking for EMPTY username and email
   if (!username || !password) {
-    res.status(400).json({ message: "Please enter username or password" });
-    return;
+    return res.status(400).json({ message: "Please enter username or password" });
   }
 
   //? Try catch block for Promise from MongoDB
