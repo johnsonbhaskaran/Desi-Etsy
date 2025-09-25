@@ -82,13 +82,22 @@ productRouter.get("/", async (req, res) => {
   const queryNew = req.query.new;
   const queryCategory = req.query.category;
 
+  try {
+    //? Find all products from the DB
+    const allProducts = await Product.find();
+
+    res.status(200).json(allProducts);
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+
   //? Show the latest five products from the DB - If queryNew=true
   if (queryNew) {
     try {
       //? pulls everything and sorts the latest 5 products using createdAt
       const latest_5_products = await Product.find().sort({ createdAt: -1 }).limit(5);
 
-      return res.status(200).json(latest_5_products);
+      res.status(200).json(latest_5_products);
     } catch (err) {
       return res.status(500).json(err);
     }
@@ -105,19 +114,10 @@ productRouter.get("/", async (req, res) => {
         categories: { $in: [req.query.category] },
       });
 
-      return res.status(200).json({ selectedCategory_products });
+      res.status(200).json({ selectedCategory_products });
     } catch (err) {
       return res.status(500).json(err);
     }
-  }
-
-  try {
-    //? Find all products from the DB
-    const allProducts = await Product.find();
-
-    return res.status(200).json(allProducts);
-  } catch (err) {
-    return res.status(500).json(err);
   }
 });
 
