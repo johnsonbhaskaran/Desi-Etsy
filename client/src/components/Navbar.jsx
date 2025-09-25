@@ -3,6 +3,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import Badge from "@mui/material/Badge";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { mobile } from "../responsive";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Container = styled.div`
   /* height: 60px; */
@@ -19,7 +21,7 @@ const Wrapper = styled.div`
 `;
 
 const Left = styled.div`
-  /* flex: 1; */
+  flex: 1;
   display: flex;
   align-items: center;
 `;
@@ -76,6 +78,8 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
+  const quantity = useSelector((state) => state.cart.quantity);
+
   return (
     <Container>
       <Wrapper>
@@ -87,16 +91,24 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>Desi Etsy.</Logo>
+          <Link to='/'>
+            <Logo>Desi Etsy.</Logo>
+          </Link>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
-          <MenuItem>
-            <Badge badgeContent={3} color='primary'>
-              <ShoppingCartOutlinedIcon />
-            </Badge>
-          </MenuItem>
+          <Link to='/register'>
+            <MenuItem>REGISTER</MenuItem>
+          </Link>
+          <Link to='/login'>
+            <MenuItem>SIGN IN</MenuItem>
+          </Link>
+          <Link to='/cart'>
+            <MenuItem>
+              <Badge badgeContent={quantity} color='primary'>
+                <ShoppingCartOutlinedIcon />
+              </Badge>
+            </MenuItem>
+          </Link>
         </Right>
       </Wrapper>
     </Container>
