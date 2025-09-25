@@ -1,4 +1,5 @@
 import express, { json } from "express";
+import cors from "cors";
 import mongoose from "mongoose";
 import "dotenv/config.js";
 // import CryptoJS from "crypto-js";
@@ -29,6 +30,7 @@ mongoose
 /------------------------------------------------------------------*/
 
 app.use(json());
+app.use(cors());
 
 /* -----------------------------------------------------------------/
                     ** App Routes
