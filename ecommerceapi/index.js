@@ -2,7 +2,6 @@ import express, { json } from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import "dotenv/config.js";
-// import CryptoJS from "crypto-js";
 import userRouter from "./routes/user.js";
 import authRouter from "./routes/auth.js";
 import productRouter from "./routes/product.js";
